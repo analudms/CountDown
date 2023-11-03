@@ -11,8 +11,8 @@ const update = (temp) => {
 
 
     const numberSeconds = temp % 60;
-    const numberMinutes = Math.floor(temp % (60 * 60) / 60);
-    const numberHours = Math.floor(temp % (60 * 60 * 24) / (60 * 60));
+    const numberMinutes = Math.floor((temp % (60 * 60) / 60));
+    const numberHours = Math.floor((temp % (60 * 60 * 24)) / (60 * 60));
     const numberDays = Math.floor(temp / (60 * 60 * 24));
 
     seconds.textContent = formatDigit(numberSeconds);
@@ -36,5 +36,18 @@ const countDown = (temp) => {
     const id = setInterval(count, 1000);
 }
 
+const timeLeft = () => {
+    const eventDay = new Date('2024-05-02 20:00:00');
+    const today = Date.now();
 
-countDown(1120000);
+    if (today > eventDay){
+        const aviso = document.getElementById('aviso');
+
+        aviso.textContent = `Live feita em ${eventDay}`;
+        return 0;
+ }
+
+    return Math.floor((eventDay - today) / 1000);
+}
+
+countDown(timeLeft());
