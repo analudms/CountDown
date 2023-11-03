@@ -32,6 +32,7 @@ body {
     font-size: calc(1px + 3vw);
     margin-bottom: 300px;
     margin-left: 10px;
+    text-shadow: 0 0 10px white;
 }
 
 .title p {
